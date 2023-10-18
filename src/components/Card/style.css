@@ -1,0 +1,31 @@
+.card {
+    width: 300px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.name-card {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.time-card {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.button-card {
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+.button-a {
+    width: 100%;
+    font-size: 16px;
+    color: green;
+    padding: 10px 0;
+    border: 1px solid green;
+    border-radius: 5px;
+}

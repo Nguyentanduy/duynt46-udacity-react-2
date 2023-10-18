@@ -1,0 +1,9 @@
+.qs-detail{
+    text-align: center;
+}
+
+.option{
+    width: 500px;
+    border:1px solid gray;
+    border-radius: 5px;
+}

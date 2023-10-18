@@ -1,0 +1,12 @@
+.border-box{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 80%;
+    margin: 15px auto;
+    border: 1px solid gray;
+    padding: 0px 20px 20px 20px;
+    border-radius: 5px;
+}
+.home{
+    text-align: center;
+}

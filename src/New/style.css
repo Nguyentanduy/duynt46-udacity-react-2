@@ -1,0 +1,31 @@
+.login_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.login {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.button_submit{
+    margin-top: 30px;
+}
+
+input{
+    padding: 10px 20px;
+    width: 500px;
+}
+
+p{
+    font-weight: 600;
+}
+
+button{
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
