@@ -6,7 +6,7 @@ import Card from "./Card";
 import store from "../../app/store";
 
 describe('Card', () => {
-    it('Home should be match snapshot', () => {
+    it('Card should be match snapshot', () => {
         var component = render(
             <MemoryRouter>
                 <Provider store={store}>

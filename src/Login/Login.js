@@ -8,6 +8,7 @@ import { setAllQuestions } from '../Slices/QuestionsSlices';
 
 export default function Login() {
     const [user, setUser] = useState({ user: "", password: "" });
+    const [isSuccess, setIsSuccess] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const userInfo = useSelector(state => state.user.allUser)
@@ -20,10 +21,9 @@ export default function Login() {
 
     const handleOnSubmit = () => {
         if (!userInfo[user.user]) {
-            alert("User invalid!!")
         } else if (userInfo[user.user].password !== user.password) {
-            alert("Password invalid!!")
         } else {
+            setIsSuccess(true);
             dispatch(setUserLogin(userInfo[user.user]))
             navigate(urlLocation)
         }
@@ -43,18 +43,20 @@ export default function Login() {
         <div className='login_container'>
             <div>
                 <div className='login'>Nguyen Tan Duy</div>
-                <div className='login'>Login</div>
+                <div data-testid='login-success'>{isSuccess && "Login Successfully!"}</div>
+
+                <p></p>
                 <div>
                     <div>
                         <p>User</p>
-                        <input placeholder='User' onChange={(e) => handleChangeInput(e, "user")} />
+                        <input data-testid='user' placeholder='User' onChange={(e) => handleChangeInput(e, "user")} />
                     </div>
                     <div>
                         <p>Password</p>
-                        <input placeholder='Password' onChange={(e) => handleChangeInput(e, "password")} />
+                        <input data-testid='password' placeholder='Password' onChange={(e) => handleChangeInput(e, "password")} />
                     </div>
-                    <div className='button_submit'>
-                        <button onClick={handleOnSubmit}>Submit</button>
+                    <div className='button_submit' >
+                        <button data-testid='submit' onClick={handleOnSubmit}>Submit</button>
                     </div>
                 </div>
             </div>
