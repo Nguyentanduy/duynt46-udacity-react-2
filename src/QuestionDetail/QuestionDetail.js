@@ -21,6 +21,9 @@ export default function QuestionDetail() {
     useEffect(() => {
         if (allQuestions) {
             setData(allQuestions[id])
+            if (!allQuestions[id]){
+                navigate('/error')
+            }
         }
     }, [allQuestions])
 

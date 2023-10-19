@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Login.css'
-import { _getUsers } from '../_DATA';
+import { _getQuestions, _getUsers } from '../_DATA';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllUsers, setUserLogin } from '../Slices/UserSlices';
 import { useNavigate } from 'react-router-dom';
+import { setAllQuestions } from '../Slices/QuestionsSlices';
 
 export default function Login() {
     const [user, setUser] = useState({ user: "", password: "" });
@@ -29,6 +30,9 @@ export default function Login() {
     }
 
     useEffect(() => {
+        _getQuestions().then(data => {
+            dispatch(setAllQuestions(data))
+        });
         _getUsers().then(data => {
             dispatch(setAllUsers(data))
         })

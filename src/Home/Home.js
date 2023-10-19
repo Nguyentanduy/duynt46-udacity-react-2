@@ -9,6 +9,7 @@ export default function Home() {
     const dispatch = useDispatch()
     const [newQues, setNewQues] = useState()
     const [doneQues, setDoneQues] = useState()
+    const [isQues, setIsQues] = useState(true)
     const allQuestions = useSelector(state => state.questions.allQuestions)
     const user = useSelector((state) => state.user.user);
 
@@ -31,26 +32,35 @@ export default function Home() {
         }
     }, [allQuestions])
 
+    const handleSwithPoll = (isPoll) => {
+        setIsQues(isPoll)
+    }
+
     return (
         <div>
             <NavBar />
             <div className='home'>
-                <div>
+                <div style={{ display: 'flex' }}>
+                    <div className='button' onClick={() => handleSwithPoll(true)}>New Questions</div>
+                    <div className='button' onClick={() => handleSwithPoll(false)}>Done</div>
+                </div>
+                {isQues ? <div>
                     <div style={{ fontSize: "20px", fontWeight: '600' }}>New Questions</div>
                     <div className='border-box'>
                         {newQues?.map((item) => {
                             return <Card key={item.id} item={item} />
                         })}
                     </div>
-                </div>
-                <div>
+                </div> : <div>
                     <div style={{ fontSize: "20px", fontWeight: '600' }}>Done</div>
                     <div className='border-box'>
                         {doneQues?.map((item) => {
                             return <Card key={item.id} item={item} />
                         })}
                     </div>
-                </div>
+                </div>}
+
+
             </div>
         </div>
     )

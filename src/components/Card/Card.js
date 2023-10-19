@@ -22,7 +22,7 @@ export default function Card({ item }) {
   return (
     <div className='card'>
       <div className='name-card'>{item?.author}</div>
-      <div className='time-card'>{timeStamp(item.timestamp)}</div>
+      <div className='time-card'>{timeStamp(item?.timestamp)}</div>
       <div className='button-card'>
         <button className='button-a' onClick={()=>{navigate(`/question/${item?.id}`)}}>Show</button>
       </div>
